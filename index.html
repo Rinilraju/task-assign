@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALIF Placement Team | Task Dashboard</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================= ROOT ================= */
+    :root {
+      --primary: #38bdf8;
+      --bg-dark: #020617;
+      --bg-card: #0f172a;
+      --text-main: #e5e7eb;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      width: 100%;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #020617, #000);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ================= CONTAINER ================= */
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      padding: 60px 80px;
+    }
+
+    /* ================= HEADER ================= */
+    .main-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .main-header h1 {
+      font-size: clamp(3.2rem, 5vw, 4.5rem);
+      letter-spacing: 0.35rem;
+      text-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+    }
+
+    .main-header h2 {
+      margin-top: 14px;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+      color: var(--primary);
+      letter-spacing: 0.14rem;
+    }
+
+    .main-header p {
+      margin-top: 18px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+    }
+
+    /* ================= TEAM GRID ================= */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    /* ================= MEMBER CARD ================= */
+    .member {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 26px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .member::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(56,189,248,0.15),
+        transparent
+      );
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .member:hover::before {
+      transform: translateX(100%);
+    }
+
+    .member:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(56,189,248,0.35);
+    }
+
+    /* ================= MEMBER HEADER ================= */
+    .member h3 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .member .role {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    /* ================= TASK LIST ================= */
+    .tasks {
+      display: none;
+      margin-top: 16px;
+      animation: expand 0.35s ease forwards;
+    }
+
+    .tasks ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .tasks li {
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      background: rgba(2,6,23,0.75);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      border-left: 3px solid var(--primary);
+    }
+
+    /* ================= ACTIVE STATE ================= */
+    .member.active .tasks {
+      display: block;
+    }
+
+    /* ================= ANIMATION ================= */
+    @keyframes expand {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      .main-header h1 {
+        letter-spacing: 0.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="main-header">
+      <h1>ALIF Placement Team</h1>
+      <h2>Task Assignment Dashboard</h2>
+      <p>Discipline • Consistency • Collective Growth</p>
+    </header>
+
+    <!-- TEAM -->
+    <section class="team-grid">
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Farzin</h3>
+        <div class="role">Team Lead</div>
+        <div class="tasks">
+          <ul>
+            <li>Coordinate daily task updates</li>
+            <li>Track overall team progress</li>
+            <li>Conduct weekly review</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Niya</h3>
+        <div class="role">Documentation</div>
+        <div class="tasks">
+          <ul>
+            <li>Prepare placement notes</li>
+            <li>Maintain shared documents</li>
+            <li>Summarize mock interviews</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Taniya</h3>
+        <div class="role">Aptitude Practice</div>
+        <div class="tasks">
+          <ul>
+            <li>Solve daily aptitude sets</li>
+            <li>Share shortcuts & tricks</li>
+            <li>Conduct weekly test</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Vaishnavi</h3>
+        <div class="role">Technical Prep</div>
+        <div class="tasks">
+          <ul>
+            <li>Revise core CS subjects</li>
+            <li>Prepare interview Q&A</li>
+            <li>Help peers with doubts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Sinan</h3>
+        <div class="role">Coding Practice</div>
+        <div class="tasks">
+          <ul>
+            <li>Solve daily coding problems</li>
+            <li>Share optimized solutions</li>
+            <li>Track coding streaks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Rinil</h3>
+        <div class="role">Web & Tools</div>
+        <div class="tasks">
+          <ul>
+            <li>Maintain internal dashboards</li>
+            <li>Improve UI/UX</li>
+            <li>Deploy team websites</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="member" onclick="toggle(this)">
+        <h3>Sourav</h3>
+        <div class="role">Mock Interviews</div>
+        <div class="tasks">
+          <ul>
+            <li>Organize mock sessions</li>
+            <li>Prepare interview scenarios</li>
+            <li>Give structured feedback</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggle(card) {
+      card.classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
