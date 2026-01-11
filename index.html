@@ -1,211 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ALIF Placement Team | Task Dashboard</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --primary: #38bdf8;
-  --bg-dark: #020617;
-  --bg-card: #0f172a;
-  --text-main: #e5e7eb;
-  --text-muted: #94a3b8;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  min-height:100vh;
-  width:100%;
-  font-family:"Inter",sans-serif;
-  background:radial-gradient(circle at top,#020617,#000);
-  color:var(--text-main);
-  display:flex;
-  justify-content:center;
-}
-
-.container{
-  width:100%;
-  max-width:1400px;
-  padding:60px 80px;
-}
-
-.main-header{
-  text-align:center;
-  margin-bottom:70px;
-}
-
-.main-header h1{
-  font-size:clamp(3.2rem,5vw,4.5rem);
-  letter-spacing:.35rem;
-  text-shadow:0 0 30px rgba(56,189,248,.45);
-}
-
-.main-header h2{
-  margin-top:14px;
-  font-size:clamp(1.6rem,3vw,2.2rem);
-  font-weight:500;
-  color:var(--primary);
-  letter-spacing:.14rem;
-}
-
-.main-header p{
-  margin-top:18px;
-  font-size:1.05rem;
-  color:var(--text-muted);
-  letter-spacing:.2rem;
-  text-transform:uppercase;
-}
-
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:28px;
-}
-
-.member{
-  background:var(--bg-card);
-  border-radius:20px;
-  padding:26px;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
-  transition:.3s;
-}
-
-.member::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(56,189,248,.15),transparent);
-  transform:translateX(-100%);
-  transition:.6s;
-}
-
-.member:hover::before{
-  transform:translateX(100%);
-}
-
-.member:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 30px 60px rgba(56,189,248,.35);
-}
-
-.member h3{
-  font-size:1.4rem;
-  margin-bottom:6px;
-}
-
-.role{
-  font-size:.9rem;
-  color:var(--primary);
-  margin-bottom:14px;
-}
-
-.tasks{
-  display:none;
-  margin-top:16px;
-  animation:expand .35s ease forwards;
-}
-
-.member.active .tasks{
-  display:block;
-}
-
-.tasks ul{
-  list-style:none;
-  margin-top:10px;
-}
-
-.tasks li{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 14px;
-  margin-bottom:10px;
-  background:rgba(2,6,23,.75);
-  border-radius:10px;
-  font-size:.95rem;
-  border-left:3px solid var(--primary);
-}
-
-.tasks button{
-  background:none;
-  border:none;
-  color:var(--text-muted);
-  font-size:1rem;
-  cursor:pointer;
-}
-
-.tasks button:hover{
-  color:var(--primary);
-}
-
-.add-task{
-  display:flex;
-  gap:10px;
-  margin-top:14px;
-}
-
-.add-task input{
-  flex:1;
-  padding:8px 10px;
-  border-radius:8px;
-  border:none;
-  outline:none;
-  background:#020617;
-  color:var(--text-main);
-}
-
-.add-task button{
-  padding:8px 14px;
-  border-radius:8px;
-  border:none;
-  background:var(--primary);
-  color:#020617;
-  font-weight:600;
-  cursor:pointer;
-}
-
-@keyframes expand{
-  from{opacity:0;transform:translateY(-10px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-@media(max-width:768px){
-  .container{padding:40px 20px}
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<header class="main-header">
-  <h1>ALIF Placement Team</h1>
-  <h2>Task Assignment Dashboard</h2>
-  <p>Discipline • Consistency • Collective Growth</p>
-</header>
-
 <section class="team-grid">
 
-  <!-- MEMBER TEMPLATE -->
+  <!-- Farzin -->
   <div class="member" onclick="toggle(this)">
     <h3>Farzin</h3>
     <div class="role">Team Lead</div>
-
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
         <li>Coordinate daily task updates <button onclick="removeTask(this)">✕</button></li>
-        <li>Track overall team progress <button onclick="removeTask(this)">✕</button></li>
+        <li>Monitor team consistency <button onclick="removeTask(this)">✕</button></li>
       </ul>
-
       <div class="add-task">
         <input placeholder="Add new task..." />
         <button onclick="addTask(this)">Add</button>
@@ -213,36 +16,116 @@ body{
     </div>
   </div>
 
-  <!-- COPY SAME STRUCTURE FOR OTHERS -->
-  <!-- You can keep existing tasks as-is -->
+  <!-- Niya -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Niya</h3>
+    <div class="role">Vice Captain • Documentation</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Maintain shared documents <button onclick="removeTask(this)">✕</button></li>
+        <li>Prepare weekly summaries <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Taniya -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Taniya</h3>
+    <div class="role">Aptitude Practice</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Daily aptitude problem sets <button onclick="removeTask(this)">✕</button></li>
+        <li>Share shortcuts <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vaishnavi -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Vaishnavi</h3>
+    <div class="role">Designer</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Design posters & visuals <button onclick="removeTask(this)">✕</button></li>
+        <li>Maintain brand consistency <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sinan -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Sinan</h3>
+    <div class="role">Research Lead</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Track company hiring patterns <button onclick="removeTask(this)">✕</button></li>
+        <li>Share interview insights <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rinil -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Rinil</h3>
+    <div class="role">Website Designer</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Maintain ALIF websites <button onclick="removeTask(this)">✕</button></li>
+        <li>Improve UI & UX <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sourav -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Sourav</h3>
+    <div class="role">Finance Coordinator</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Track expenses & funds <button onclick="removeTask(this)">✕</button></li>
+        <li>Maintain finance records <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nandana -->
+  <div class="member" onclick="toggle(this)">
+    <h3>Nandana</h3>
+    <div class="role">Presentation Lead</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Create PPTs for reviews <button onclick="removeTask(this)">✕</button></li>
+        <li>Standardize presentation formats <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add new task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
 
 </section>
-
-</div>
-
-<script>
-function toggle(card){
-  card.classList.toggle("active");
-}
-
-function addTask(btn){
-  const input = btn.previousElementSibling;
-  const text = input.value.trim();
-  if(!text) return;
-
-  const ul = btn.closest(".tasks").querySelector("ul");
-  const li = document.createElement("li");
-
-  li.innerHTML = `${text} <button onclick="removeTask(this)">✕</button>`;
-  ul.appendChild(li);
-  input.value="";
-}
-
-function removeTask(btn){
-  btn.parentElement.remove();
-}
-</script>
-
-</body>
-</html>
-
