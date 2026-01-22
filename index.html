@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ALIF Placement Team | Task Dashboard</title>
+<title>Team NEXUS | Task Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -16,164 +16,150 @@
   --text-muted: #94a3b8;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
-  background: radial-gradient(circle at top, #020617, #000);
-  color: var(--text-main);
-  display: flex;
-  justify-content: center;
+  min-height:100vh;
+  font-family:"Inter",sans-serif;
+  background:radial-gradient(circle at top,#020617,#000);
+  color:var(--text-main);
+  display:flex;
+  justify-content:center;
 }
 
 .container {
-  width: 100%;
-  max-width: 1400px;
-  padding: 60px 80px;
+  width:100%;
+  max-width:1400px;
+  padding:60px 80px;
 }
 
 /* HEADER */
 .main-header {
-  text-align: center;
-  margin-bottom: 70px;
+  text-align:center;
+  margin-bottom:70px;
 }
 
 .main-header h1 {
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  letter-spacing: 0.35rem;
-  text-shadow: 0 0 30px rgba(56,189,248,0.45);
+  font-size:clamp(3rem,5vw,4.5rem);
+  letter-spacing:.35rem;
+  text-shadow:0 0 30px rgba(56,189,248,.45);
 }
 
 .main-header h2 {
-  margin-top: 14px;
-  color: var(--primary);
-  letter-spacing: 0.15rem;
+  margin-top:14px;
+  color:var(--primary);
+  letter-spacing:.15rem;
 }
 
 .main-header p {
-  margin-top: 18px;
-  color: var(--text-muted);
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
+  margin-top:18px;
+  color:var(--text-muted);
+  letter-spacing:.2rem;
+  text-transform:uppercase;
 }
 
 /* GRID */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
 }
 
 /* CARD */
 .member {
-  background: var(--bg-card);
-  border-radius: 20px;
-  padding: 26px;
-  cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  background:var(--bg-card);
+  border-radius:20px;
+  padding:26px;
+  cursor:pointer;
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
 }
 
 .member::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(56,189,248,0.15), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(56,189,248,.15),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
 }
 
-.member:hover::before {
-  transform: translateX(100%);
-}
+.member:hover::before { transform:translateX(100%); }
 
 .member:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(56,189,248,0.35);
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 30px 60px rgba(56,189,248,.35);
 }
 
-.member h3 {
-  font-size: 1.4rem;
-}
+.member h3 { font-size:1.4rem; }
 
 .member .role {
-  margin-top: 6px;
-  color: var(--primary);
-  font-size: 0.9rem;
+  margin-top:6px;
+  color:var(--primary);
+  font-size:.9rem;
 }
 
 /* TASKS */
 .tasks {
-  display: none;
-  margin-top: 18px;
+  display:none;
+  margin-top:18px;
 }
 
-.member.active .tasks {
-  display: block;
-}
+.member.active .tasks { display:block; }
 
-.tasks ul {
-  list-style: none;
-}
+.tasks ul { list-style:none; }
 
 .tasks li {
-  background: rgba(2,6,23,0.8);
-  padding: 10px 14px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border-left: 3px solid var(--primary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background:rgba(2,6,23,.8);
+  padding:10px 14px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border-left:3px solid var(--primary);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .tasks li button {
-  background: none;
-  border: none;
-  color: #f87171;
-  font-size: 1rem;
-  cursor: pointer;
+  background:none;
+  border:none;
+  color:#f87171;
+  font-size:1rem;
+  cursor:pointer;
 }
 
 /* ADD TASK */
 .add-task {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  display:flex;
+  gap:8px;
+  margin-top:12px;
 }
 
 .add-task input {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  background: #020617;
-  color: var(--text-main);
+  flex:1;
+  padding:8px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  background:#020617;
+  color:var(--text-main);
 }
 
 .add-task button {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  background: var(--primary);
-  color: #020617;
-  font-weight: 600;
-  cursor: pointer;
+  padding:8px 14px;
+  border-radius:8px;
+  border:none;
+  background:var(--primary);
+  color:#020617;
+  font-weight:600;
+  cursor:pointer;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
-  .container {
-    padding: 40px 20px;
-  }
+@media(max-width:768px){
+  .container{ padding:40px 20px; }
 }
 </style>
 </head>
@@ -182,20 +168,19 @@ body {
 <div class="container">
 
 <header class="main-header">
-  <h1>ALIF PLACEMENT TEAM</h1>
+  <h1>TEAM NEXUS</h1>
   <h2>Task Assignment Dashboard</h2>
-  <p>Discipline • Consistency • Unity</p>
+  <p>Connection • Discipline • Growth</p>
 </header>
 
 <section class="team-grid">
 
-  <!-- MEMBER TEMPLATE -->
   <div class="member" onclick="toggle(this)">
-    <h3>Farzin</h3>
+    <h3>Nandana P Nair</h3>
     <div class="role">Captain</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
-        <li>Coordinate team workflow <button onclick="removeTask(this)">✕</button></li>
+        <li>Lead team coordination <button onclick="removeTask(this)">✕</button></li>
       </ul>
       <div class="add-task">
         <input placeholder="Add task..." />
@@ -205,11 +190,11 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Niya</h3>
+    <h3>Vivek Joby</h3>
     <div class="role">Vice Captain</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
-        <li>Maintain documentation <button onclick="removeTask(this)">✕</button></li>
+        <li>Monitor task progress <button onclick="removeTask(this)">✕</button></li>
       </ul>
       <div class="add-task">
         <input placeholder="Add task..." />
@@ -219,11 +204,11 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Rinil</h3>
-    <div class="role">Website Designer</div>
+    <h3>Mazin A V</h3>
+    <div class="role">UI / Web Designer</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
-        <li>Maintain team websites <button onclick="removeTask(this)">✕</button></li>
+        <li>Design dashboards <button onclick="removeTask(this)">✕</button></li>
       </ul>
       <div class="add-task">
         <input placeholder="Add task..." />
@@ -233,7 +218,7 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Sourav</h3>
+    <h3>Jazim Ahmmed</h3>
     <div class="role">Finance Coordinator</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
@@ -247,7 +232,7 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Sinan</h3>
+    <h3>Irshad Mohammed</h3>
     <div class="role">Research Lead</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
@@ -261,11 +246,11 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Vaishnavi</h3>
-    <div class="role">Designer</div>
+    <h3>Mohammed Noufal K N</h3>
+    <div class="role">Creative Designer</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
-        <li>Create visuals <button onclick="removeTask(this)">✕</button></li>
+        <li>Create visual assets <button onclick="removeTask(this)">✕</button></li>
       </ul>
       <div class="add-task">
         <input placeholder="Add task..." />
@@ -275,7 +260,7 @@ body {
   </div>
 
   <div class="member" onclick="toggle(this)">
-    <h3>Nandana</h3>
+    <h3>Vasudev</h3>
     <div class="role">Presentation Lead</div>
     <div class="tasks" onclick="event.stopPropagation()">
       <ul>
@@ -288,28 +273,52 @@ body {
     </div>
   </div>
 
+  <div class="member" onclick="toggle(this)">
+    <h3>Navneed</h3>
+    <div class="role">Documentation</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>Maintain records <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="member" onclick="toggle(this)">
+    <h3>Nived</h3>
+    <div class="role">Outreach & Coordination</div>
+    <div class="tasks" onclick="event.stopPropagation()">
+      <ul>
+        <li>External coordination <button onclick="removeTask(this)">✕</button></li>
+      </ul>
+      <div class="add-task">
+        <input placeholder="Add task..." />
+        <button onclick="addTask(this)">Add</button>
+      </div>
+    </div>
+  </div>
+
 </section>
 </div>
 
 <script>
-function toggle(card) {
-  card.classList.toggle("active");
-}
+function toggle(card){ card.classList.toggle("active"); }
 
-function addTask(btn) {
-  const input = btn.previousElementSibling;
-  if (!input.value.trim()) return;
-
-  const li = document.createElement("li");
-  li.innerHTML = `${input.value} <button onclick="removeTask(this)">✕</button>`;
+function addTask(btn){
+  const input=btn.previousElementSibling;
+  if(!input.value.trim()) return;
+  const li=document.createElement("li");
+  li.innerHTML=`${input.value} <button onclick="removeTask(this)">✕</button>`;
   btn.closest(".tasks").querySelector("ul").appendChild(li);
-  input.value = "";
+  input.value="";
 }
 
-function removeTask(btn) {
-  btn.parentElement.remove();
-}
+function removeTask(btn){ btn.parentElement.remove(); }
 </script>
 
 </body>
 </html>
+
